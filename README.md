@@ -1,11 +1,11 @@
 # Snapshot safety with virtio-rng
 
-This is a demo repo for demonstrating the new virtio-rng[1] proposed feature for "entropy leak detection"[2], designed to
-enable snapshot safety for Virtual Machines.
+This is a demo repo for demonstrating the new [virtio-rng](https://docs.oasis-open.org/virtio/virtio/v1.2/cs01/virtio-v1.2-cs01.html#x1-3050004)
+proposed feature for "[entropy leak detection](https://www.mail-archive.com/virtio-dev@lists.oasis-open.org/msg09016.html)", designed to enable snapshot safety for Virtual Machines.
 
-The demo includes a patch-set for Linux 6.1 with a PoC implementation of the new feature for the virtio-rng driver[3] and
-the corresponding device implementation[4] on the Firecracker Virtual Machine Monitor[5]. It also includes a set of user-space
-test applications for show-casing the implemented functionality.
+The demo includes a patch-set for Linux 6.1 with a PoC implementation of the new feature for the virtio-rng driver and
+the corresponding [device implementation](https://github.com/bchalios/firecracker/tree/feat_snapsafety) on the [Firecracker Virtual Machine Monitor](https://github.com/firecracker-microvm/firecracker).
+It also includes a set of user-space test applications for show-casing the implemented functionality.
 
 ## virtio-rng entropy leak reporting
 
@@ -91,9 +91,3 @@ bash-4.2# ./test_mmap /sys/virtio-rng/virtio_rng.0/vm_gen_counter
 2023-01-19T11:52:17.230990483 [anonymous-instance:main:WARN:src/logger/src/lib.rs:36] [DevPreview] Virtual machine snapshots is in development preview.
 VM generation counter changed! Old: 0 New: 1
 ```
-
-[1] https://docs.oasis-open.org/virtio/virtio/v1.2/cs01/virtio-v1.2-cs01.html#x1-3050004
-[2] https://www.mail-archive.com/virtio-dev@lists.oasis-open.org/msg09016.html
-[3] https://github.com/bchalios/linux/tree/virtio_rng_snapsafe_sysfs
-[4] https://github.com/bchalios/firecracker/tree/feat_snapsafety
-[5] https://github.com/firecracker-microvm/firecracker
