@@ -1,0 +1,37 @@
+{
+  "balloon": null,
+  "drives": [
+    {
+      "drive_id": "1",
+      "path_on_host": "share/al2.img",
+      "is_root_device": true,
+      "partuuid": null,
+      "is_read_only": false,
+      "cache_type": "Unsafe",
+      "rate_limiter": null,
+      "io_engine": "Sync"
+    }
+  ],
+  "boot-source": {
+    "kernel_image_path": "bin/vmlinux-6.1-snapsafe",
+    "initrd_path": null,
+    "boot_args":"panic=1 reboot=k tsc=reliable earlyprintk=ttyS0 console=ttyS0 ipv6.disable=1 pci=off i8042.noaux i8042.nokbd i8042.nopnp"
+  },
+  "logger": null,
+  "machine-config": {
+    "vcpu_count": 1,
+    "mem_size_mib": 4096,
+    "smt": false,
+    "track_dirty_pages": false
+  },
+  "metrics": null,
+  "mmds-config": null,
+  "network-interfaces": [],
+  "vsock": null,
+  "entropy": {
+    "rate_limiter": {
+      "bandwidth": null,
+      "ops": null
+    }
+  }
+}
