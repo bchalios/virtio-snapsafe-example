@@ -44,7 +44,7 @@ $ chmod u+x bin/firecracker-snapsafe
 We also need to download a rootfs image pre-baked with the test programs:
 
 ```shell
-$ wget https:/s3.amazonaws.com/spec.ccfc.min/snapsafe_demo/al2.img
+$ wget https://s3.amazonaws.com/spec.ccfc.min/snapsafe_demo/al2.img -O share/al2.img
 ```
 
 ### Launch Firecracker and start test
@@ -90,8 +90,8 @@ $ curl --unix-socket /tmp/firecracker.sock -i \
     -H  'Content-Type: application/json' \
     -d '{
             "snapshot_type": "Full",
-            "snapshot_path": "./snapshot_file_2",
-            "mem_file_path": "./mem_file_2"
+            "snapshot_path": "./snapshot_file",
+            "mem_file_path": "./mem_file"
     }'
 HTTP/1.1 204
 Server: Firecracker API
