@@ -25,6 +25,21 @@ a word-size unsigned integer which increases with every entropy leak event.
 We will launch a Firecracker uVM and start the `test_mmap` application. The application reads the sysfs file and caches the
 value of the generation counter. Then, it periodically monitors the `mmap`ed memory and reports changes in the value.
 
+
+### Preparation
+
+We need to apply the patches from `patches` and build a Linux kernel and as well build the Firecracker binary from the [fork](https://github.com/bchalios/firecracker/tree/feat_snapsafety) that
+implementations the new feature.
+
+Otherwise, we can download pre-built binaries:
+
+```shell
+$ mkdir bin
+$ wget https://s3.amazonaws.com/spec.ccfc.min/snapsafe_demo/firecracker-snapsafe -O bin/firecracker-snapsafe
+$ wget https://s3.amazonaws.com/spec.ccfc.min/snapsafe_demo/vmlinux-6.1-snapsafe -O bin/vmlinux-6.1-snapsafe
+```
+
+### Launch Firecracker and start test
 ```
 # Grant access to /dev/kvm for your user. In my distro, you can do that with file ACLs.
 $ sudo setfacl -m u:${USER}:rw /dev/kvm
@@ -42,6 +57,8 @@ Password:
 Last login: Thu Jan 19 11:32:51 on ttyS0
 -bash-4.2# ./test_mmap /sys/virtio-rng/virtio_rng.0/vm_gen_counter
 ```
+
+### Snapshot VM
 
 From another terminal on the host machine take a snapshot of the Firecracker uVM:
 
