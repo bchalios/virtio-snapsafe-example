@@ -37,6 +37,14 @@ Otherwise, we can download pre-built binaries:
 $ mkdir bin
 $ wget https://s3.amazonaws.com/spec.ccfc.min/snapsafe_demo/firecracker-snapsafe -O bin/firecracker-snapsafe
 $ wget https://s3.amazonaws.com/spec.ccfc.min/snapsafe_demo/vmlinux-6.1-snapsafe -O bin/vmlinux-6.1-snapsafe
+# Also make the Firecracker binary executable
+$ chmod u+x bin/firecracker-snapsafe
+```
+
+We also need to download a rootfs image pre-baked with the test programs:
+
+```shell
+$ wget https:/s3.amazonaws.com/spec.ccfc.min/snapsafe_demo/al2.img
 ```
 
 ### Launch Firecracker and start test
